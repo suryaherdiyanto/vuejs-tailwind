@@ -1,18 +1,44 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container mx-auto py-12">
+    <h2 class="text-2xl">Buttons</h2>
+    <hr>
+    <div class="flex py-5 gap-5">
+      <tw-button text="Primary Button"></tw-button>
+      <tw-button text="Success Button" variant="success"></tw-button>
+      <tw-button text="Warning Button" variant="warning"></tw-button>
+      <tw-button text="Danger Button" variant="danger"></tw-button>
+    </div>
+
+    <h2 class="text-2xl pt-5">Smaller Buttons</h2>
+    <hr>
+    <div class="flex py-5 gap-5">
+      <tw-button text="Primary Button" size="sm"></tw-button>
+      <tw-button text="Success Button" size="sm" variant="success"></tw-button>
+      <tw-button text="Warning Button" size="sm" variant="warning"></tw-button>
+      <tw-button text="Danger Button" size="sm" variant="danger"></tw-button>
+    </div>
+
+    <h2 class="text-2xl pt-5">Text Box</h2>
+    <hr>
+    <div class="mt-5 grid grid-cols-4 gap-5">
+      <tw-text-box title="Textbox 1" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales id massa in placerat. Etiam in neque ultrices, egestas elit eget, placerat augue. Vestibulum fringilla odio et justo cursus, in maximus tellus tristique. Sed porta interdum tortor at efficitur."></tw-text-box>
+      <tw-text-box title="Textbox 2" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales id massa in placerat. Etiam in neque ultrices, egestas elit eget, placerat augue. Vestibulum fringilla odio et justo cursus, in maximus tellus tristique. Sed porta interdum tortor at efficitur."></tw-text-box>
+      <tw-text-box title="Textbox 3" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales id massa in placerat. Etiam in neque ultrices, egestas elit eget, placerat augue. Vestibulum fringilla odio et justo cursus, in maximus tellus tristique. Sed porta interdum tortor at efficitur."></tw-text-box>
+      <tw-text-box title="Textbox 4" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales id massa in placerat. Etiam in neque ultrices, egestas elit eget, placerat augue. Vestibulum fringilla odio et justo cursus, in maximus tellus tristique. Sed porta interdum tortor at efficitur."></tw-text-box>
+    </div>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import TwButton from '../components/TWButton.vue';
+import TwTextBox from '../components/TWTextBox.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    TwButton,
+    TwTextBox
   }
 }
 </script>
