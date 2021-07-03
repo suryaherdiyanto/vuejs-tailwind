@@ -27,6 +27,24 @@
       <tw-button text="Danger Button" size="sm" :outline="true" variant="danger"></tw-button>
     </div>
 
+    <h2 class="text-2xl pt-5">Buttons with loading indicators</h2>
+    <hr>
+    <div class="flex py-5 gap-5">
+      <tw-button text="Primary Button" size="sm" is-loading></tw-button>
+      <tw-button text="Success Button" size="sm" is-loading variant="success"></tw-button>
+      <tw-button text="Warning Button" size="sm" is-loading :outline="true" variant="warning"></tw-button>
+      <tw-button text="Danger Button" size="sm" is-loading :outline="true" variant="danger"></tw-button>
+    </div>
+
+    <h2 class="text-2xl pt-5">Disabled buttons</h2>
+    <hr>
+    <div class="flex py-5 gap-5">
+      <tw-button text="Primary Button" size="sm" disabled></tw-button>
+      <tw-button text="Success Button" size="sm" disabled variant="success"></tw-button>
+      <tw-button text="Warning Button" size="sm" disabled variant="warning"></tw-button>
+      <tw-button text="Danger Button" size="sm" disabled variant="danger"></tw-button>
+    </div>
+
     <h2 class="text-2xl pt-5">Text Box</h2>
     <hr>
     <div class="mt-5 grid grid-cols-4 gap-5">
