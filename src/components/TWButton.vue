@@ -1,6 +1,6 @@
 <template>
     <button class="rounded-md border-2 font-medium cursor-pointer text-white relative transition-colors group focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed" :class="customClasses" :type="type">
-        {{ text }} &nbsp; <span v-if="isLoading" class="w-5 h-5 border-r border-t inline-block float-right rounded-t-full rounded-r-full animate-spin" :class="loadingClasses"></span>
+        {{ text }} <span v-if="isLoading" class="w-5 h-5 ml-2 border-r border-t inline-block float-right rounded-t-full rounded-r-full animate-spin" :class="loadingClasses"></span>
     </button>
 </template>
 
