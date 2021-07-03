@@ -3,7 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      'body': ['Nunito Sans', 'Open Sans', 'Roboto', 'sans-serif']
+      'body': [ 'Cabin', 'Lato', 'Nunito Sans', 'Open Sans', 'Roboto', 'sans-serif']
     }
   },
   variants: {

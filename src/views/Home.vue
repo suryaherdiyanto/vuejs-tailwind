@@ -18,6 +18,15 @@
       <tw-button text="Danger Button" size="sm" variant="danger"></tw-button>
     </div>
 
+    <h2 class="text-2xl pt-5">Outline Buttons</h2>
+    <hr>
+    <div class="flex py-5 gap-5">
+      <tw-button text="Primary Button" size="sm" :outline="true"></tw-button>
+      <tw-button text="Success Button" size="sm" :outline="true" variant="success"></tw-button>
+      <tw-button text="Warning Button" size="sm" :outline="true" variant="warning"></tw-button>
+      <tw-button text="Danger Button" size="sm" :outline="true" variant="danger"></tw-button>
+    </div>
+
     <h2 class="text-2xl pt-5">Text Box</h2>
     <hr>
     <div class="mt-5 grid grid-cols-4 gap-5">
@@ -26,6 +35,7 @@
       <tw-text-box title="Textbox 3" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales id massa in placerat. Etiam in neque ultrices, egestas elit eget, placerat augue. Vestibulum fringilla odio et justo cursus, in maximus tellus tristique. Sed porta interdum tortor at efficitur."></tw-text-box>
       <tw-text-box title="Textbox 4" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales id massa in placerat. Etiam in neque ultrices, egestas elit eget, placerat augue. Vestibulum fringilla odio et justo cursus, in maximus tellus tristique. Sed porta interdum tortor at efficitur."></tw-text-box>
     </div>
+    
 
   </div>
 </template>
