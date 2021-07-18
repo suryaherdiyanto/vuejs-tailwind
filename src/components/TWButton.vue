@@ -1,7 +1,10 @@
 <template>
-    <button class="rounded-md border-2 font-medium cursor-pointer relative transition-colors group focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed" :class="customClasses" :type="type">
+    <button v-if="type === 'button'" class="rounded-md border-2 font-medium cursor-pointer relative transition-colors group focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed" :class="customClasses" :type="type">
         {{ text }} <span v-if="isLoading" class="w-5 h-5 ml-2 border-r border-t inline-block float-right rounded-t-full rounded-r-full animate-spin" :class="loadingClasses"></span>
     </button>
+    <a v-if="type === 'link'" :href="href" class="rounded-md border-2 font-medium cursor-pointer relative transition-colors group focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed" :class="customClasses">
+        {{ text }} <span v-if="isLoading" class="w-5 h-5 ml-2 border-r border-t inline-block float-right rounded-t-full rounded-r-full animate-spin" :class="loadingClasses"></span>
+    </a>
 </template>
 
 <script>
@@ -29,6 +32,10 @@ export default {
         isLoading: {
             type: Boolean,
             default: false
+        },
+        href: {
+            type: String,
+            default: '#'
         }
     },
     data() {

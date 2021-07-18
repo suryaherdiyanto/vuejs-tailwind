@@ -49,6 +49,15 @@
       <tw-button text="Danger Button" size="sm" disabled variant="danger"></tw-button>
     </div>
 
+    <h2 class="text-2xl pt-5">Link buttons</h2>
+    <hr>
+    <div class="flex py-5 gap-5">
+      <tw-button type="link" text="Primary Button" size="sm" disabled></tw-button>
+      <tw-button type="link" text="Success Button" size="sm" disabled variant="success"></tw-button>
+      <tw-button type="link" text="Warning Button" size="sm" disabled variant="warning"></tw-button>
+      <tw-button type="link" text="Danger Button" size="sm" disabled variant="danger"></tw-button>
+    </div>
+
     <h2 class="text-2xl pt-5">Text Box</h2>
     <hr>
     <div class="mt-5 grid grid-cols-4 gap-5">
