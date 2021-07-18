@@ -3,6 +3,7 @@
     <h2 class="text-2xl">Buttons</h2>
     <hr>
     <div class="flex py-5 gap-5">
+      <tw-button text="Light Button" variant="light"></tw-button>
       <tw-button text="Primary Button"></tw-button>
       <tw-button text="Success Button" variant="success"></tw-button>
       <tw-button text="Warning Button" variant="warning"></tw-button>
@@ -12,6 +13,7 @@
     <h2 class="text-2xl pt-5">Smaller Buttons</h2>
     <hr>
     <div class="flex py-5 gap-5">
+      <tw-button text="Light Button" variant="light" size="sm"></tw-button>
       <tw-button text="Primary Button" size="sm"></tw-button>
       <tw-button text="Success Button" size="sm" variant="success"></tw-button>
       <tw-button text="Warning Button" size="sm" variant="warning"></tw-button>
@@ -21,6 +23,7 @@
     <h2 class="text-2xl pt-5">Outline Buttons</h2>
     <hr>
     <div class="flex py-5 gap-5">
+      <tw-button text="Light Button" size="sm" :outline="true" variant="light"></tw-button>
       <tw-button text="Primary Button" size="sm" :outline="true"></tw-button>
       <tw-button text="Success Button" size="sm" :outline="true" variant="success"></tw-button>
       <tw-button text="Warning Button" size="sm" :outline="true" variant="warning"></tw-button>
@@ -30,6 +33,7 @@
     <h2 class="text-2xl pt-5">Buttons with loading indicators</h2>
     <hr>
     <div class="flex py-5 gap-5">
+      <tw-button text="Light Button" size="sm" is-loading variant="light"></tw-button>
       <tw-button text="Primary Button" size="sm" is-loading></tw-button>
       <tw-button text="Success Button" size="sm" is-loading variant="success"></tw-button>
       <tw-button text="Warning Button" size="sm" is-loading :outline="true" variant="warning"></tw-button>
