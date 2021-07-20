@@ -96,18 +96,51 @@
         </div>
       </div>
     </div>
+
+
+    <h2 class="text-2xl font-bold pt-5">Form</h2>
+    <hr>
+    <div class="mt-5">
+      <tw-form>
+        <div class="grid grid-cols-2 gap-5">
+          <tw-form-control name="first_name" title="First Name">
+            <tw-input type="text" name="first_name" placeholder="Enter your first name" id="first_name"></tw-input>
+          </tw-form-control>
+          <tw-form-control name="last_name" title="Last Name">
+            <tw-input type="text" name="last_name" placeholder="Enter your last name" id="last_name"></tw-input>
+          </tw-form-control>
+          <tw-form-control name="email" title="Your email">
+            <tw-input type="text" name="email" placeholder="Enter your email" id="email"></tw-input>
+          </tw-form-control>
+          <tw-form-control name="phone" title="Phone (Optional)">
+            <tw-input type="text" name="phone" placeholder="Enter your phone number" id="phone"></tw-input>
+          </tw-form-control>
+          <tw-form-control class="col-span-2" name="message" title="Your message">
+            <tw-textarea name="message" id="message" placeholder="Enter your message here..."></tw-textarea>
+          </tw-form-control>
+        </div>
+      </tw-form>
+    </div>
   </div>
 </template>
 
 <script>
 import TwButton from '../components/TWButton.vue';
 import TwCard from '../components/TWCard.vue';
+import TwForm from '../components/Form/BaseForm.vue';
+import TwInput from '../components/Form/TWInput.vue';
+import TwTextarea from '../components/Form/TWTextarea.vue';
+import TwFormControl from '../components/Form/TWFormControl.vue'
 
 export default {
   name: 'Home',
   components: {
     TwButton,
-    TwCard
+    TwCard,
+    TwInput,
+    TwForm,
+    TwFormControl,
+    TwTextarea
   }
 }
 </script>
