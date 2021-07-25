@@ -7,7 +7,7 @@
                     <h3 v-if="title" class="text-xl font-bold">{{ title }}</h3>
                 </slot>
                 <slot name="description">
-                    <p v-if="description" class="text-gray-500 mt-4 font-medium">
+                    <p v-if="description" class="text-gray-500 mt-4">
                         {{ description }}
                     </p>
                 </slot>
@@ -48,15 +48,15 @@ export default {
             },
             imageClasses: {
                 'w-full': false,
-                'w-1/4': false,
+                'w-1/3': false,
                 'h-48': false,
+                'min-h-full': false,
                 'rounded-l-lg': false,
                 'rounded-t-lg': false
             },
             textClasses: {
                 'w-full': false,
-                'w-3/4': false,
-                'h-48': false
+                'w-2/3': false
             }
         }
     },
@@ -75,10 +75,10 @@ export default {
             this.textClasses['flex-1'] = true;
 
         } else {
-            this.imageClasses['w-1/4'] = true;
+            this.imageClasses['w-1/3'] = true;
             this.imageClasses['rounded-l-lg'] = true;
-            this.textClasses['w-3/4'] = true;
-            this.textClasses['h-48'] = true;
+            this.imageClasses['min-h-full'] = true;
+            this.textClasses['w-2/3'] = true;
         }
     }   
 }
