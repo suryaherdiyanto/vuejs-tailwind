@@ -115,6 +115,9 @@
           <tw-form-control name="phone" title="Phone (Optional)">
             <tw-input type="text" name="phone" placeholder="Enter your phone number" id="phone"></tw-input>
           </tw-form-control>
+          <tw-form-control name="city" title="Choose City">
+            <tw-select :items="['Denpasar','Jakarta','Yogyakarta', 'Medan', 'Malang', 'Surabaya']"></tw-select>
+          </tw-form-control>
           <tw-form-control class="col-span-2" name="message" title="Your message">
             <tw-textarea name="message" id="message" placeholder="Enter your message here..."></tw-textarea>
           </tw-form-control>
@@ -130,7 +133,8 @@ import TwCard from '../components/TWCard.vue';
 import TwForm from '../components/Form/BaseForm.vue';
 import TwInput from '../components/Form/TWInput.vue';
 import TwTextarea from '../components/Form/TWTextarea.vue';
-import TwFormControl from '../components/Form/TWFormControl.vue'
+import TwFormControl from '../components/Form/TWFormControl.vue';
+import TwSelect from '../components/Form/TWSelect.vue';
 
 export default {
   name: 'Home',
@@ -140,7 +144,8 @@ export default {
     TwInput,
     TwForm,
     TwFormControl,
-    TwTextarea
+    TwTextarea,
+    TwSelect
   }
 }
 </script>

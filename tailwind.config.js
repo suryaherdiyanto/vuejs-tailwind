@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -10,6 +11,12 @@ module.exports = {
     extend: {
       opacity: ['disabled'],
       cursor: ['disabled'],
+      borderColor: ['before', 'after'],
+      borderWidth: ['before', 'after'],
+      position: ['before', 'after'],
+      width: ['before', 'after'],
+      height: ['before', 'after'],
+      transform: ['before']
     },
   },
   plugins: [],
