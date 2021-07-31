@@ -1,20 +1,23 @@
 <template>
     <div 
-        @blur="showItems = false" 
-        @focus="showItems = true"
-        @keydown.self.down.prevent="selectItem"
-        @keydown.self.up.prevent="selectItem"
-        @keyup.enter.prevent="chooseItem" 
-        class="relative focus:border-gray-200" 
-        tabindex="0"
+        @blur="filterable ? false:deactivate()" 
+        @click="activate()"
+        @focus="activate()"
+        @keyup.esc="deactivate()"
+        class="relative outline-none"
+        :tabindex="0"
+        ref="_select_wrap"
     >
         
-        <div class="w-full h-9 p-1.5 font-light border border-gray-200 rounded-md font-sm  focus:outline-none">
-            <span v-if="!selectedItem" class="text-gray-400">{{ placeholder }}</span>
-            <span v-if="selectedItem && multiple" class="mr-1 bg-blue-500 text-white inline-block px-1 py-0.5 text-xs font-medium rounded-xl">
-                {{ selectedItem }} <a href="#" class="ml-0.5">&times;</a>
+        <div
+             
+            class="w-full h-9 p-1.5 font-light border border-gray-200 rounded-md font-sm group-focus:border-gray-800 focus:border-gray-800 hover:border-gray-400"
+        >
+            <span v-if="!modelValue" class="text-gray-400">{{ placeholder }}</span>
+            <span v-if="modelValue && multiple" class="mr-1 bg-blue-500 text-white inline-block px-1 py-0.5 text-xs font-medium rounded-xl">
+                {{ modelValue }} <a href="#" class="ml-0.5">&times;</a>
             </span>
-            <span v-if="!multiple">{{ selectedItem }}</span>
+            <span v-if="!multiple">{{ modelValue }}</span>
             <span 
                 class="relative right-1.5 w-5 h-5 text-center transition-transform float-right custom-border-color origin-center before:relative before:top-1/2 before:align-middle before:w-6 before:h-6 before:border-t-4 before:border-r-4 before:border-l-4 before:border-b-0"
                 :class="{showItems, 'transform': showItems, 'rotate-180': showItems}"
@@ -22,17 +25,28 @@
             </span>
         </div>
 
-        <div v-if="showItems" @hover="showItems = true" class="w-full max-h-52 mt-1.5 bg-white border shadow-lg overflow-y-auto absolute rounded-md">
-            <input
-                v-if="filterable"
-                v-model="selectedItem"
-                class="w-full h-9 font-light p-3 border border-gray-200 rounded-md font-sm focus:outline-none"
-                placeholder="Search...." 
-                :class="{ 'border-green-500': isSuccess, 'border-red-500': isError, 'hover:border-gray-400': (!isError && !isSuccess), 'focus:border-gray-800': (!isError && !isSuccess) }"
-            >
+        <div v-show="showItems"
+            @blur="!filterable ? false:deactivate()"
+            class="w-full max-h-52 mt-1.5 bg-white border shadow-lg overflow-y-auto absolute rounded-md"
+        >
             <ul class="w-full">
+                <li class="p-2">
+                    <input
+                        @focus.prevent="activate()"
+                        @blur.prevent="deactivate()"
+                        @keyup.esc="deactivate()"
+                        @keyup.prevent.up="selectItem"
+                        @keyup.prevent.down="selectItem"
+                        v-if="filterable"
+                        v-model="search"
+                        ref="_select_filter"
+                        class="w-full h-7 font-light p-3 border border-gray-200 rounded-md font-sm focus:outline-none"
+                        placeholder="Search...."
+                        :class="{ 'border-green-500': isSuccess, 'border-red-500': isError, 'hover:border-gray-400': (!isError && !isSuccess), 'focus:border-gray-800': (!isError && !isSuccess) }"
+                    >
+                </li>
                 <li 
-                    v-for="(item,index) in selectItems"
+                    v-for="(item,index) in filteredItems"
                     @click.stop="chooseItem(item)" 
                     :key="index" 
                     class="block cursor-pointer p-2 hover:bg-gray-200"
@@ -74,14 +88,34 @@ export default {
         multiple: {
             type: Boolean,
             default: false
+        },
+        filterable: {
+            type: Boolean,
+            default: false
+        },
+        modelValue: {
+            type: [String, Array]
+        }
+    },
+    computed: {
+        filteredItems() {
+            
+            if (this.search === '') {
+                return this.selectItems;
+            }
+
+            return this.selectItems.filter((item) => {
+                return item.value.toLowerCase().indexOf(this.search.toLowerCase()) >= 0;
+            });
         }
     },
     data() {
         return {
             selectItems: [],
             selectPosition: -1,
-            selectedItem: '',
-            showItems: false
+            selectedItem: null,
+            showItems: false,
+            search: ''
         }
     },
     methods: {
@@ -123,18 +157,39 @@ export default {
                 this.selectedItem = item.value;
                 this.selectPosition = -1;
             }
+
+            if (!this.multiple || this.filterable) {
+                this.deactivate();
+                this.$refs._select_wrap.blur();
+            }
+
+            this.$emit('update:modelValue', this.selectedItem);
         },
         populateItems() {
             this.items.forEach((item) => {
                 
-
                 if (typeof(item) === "object") {
                     this.selectItems.push({ key: this.keyValue, value: this.items[this.keyValue], selected: false });
                 } else {
                     this.selectItems.push({ key: item, value: item, selected: false });
                 }
-
             });
+        },
+        deactivate() {
+
+            if (this.$refs._select_filter) {
+                this.$refs._select_filter.blur();
+            }
+
+            this.showItems = false;
+        },
+        activate() {
+
+            if (this.filterable && this.$refs._select_filter) {
+                this.$refs._select_filter.focus();
+            }
+
+            this.showItems = true;
         }
     },
     created() {

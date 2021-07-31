@@ -11,8 +11,8 @@ module.exports = {
     extend: {
       opacity: ['disabled'],
       cursor: ['disabled'],
-      borderColor: ['before', 'after'],
-      borderWidth: ['before', 'after'],
+      borderColor: ['before', 'after', 'group-focus', 'group-hover'],
+      borderWidth: ['before', 'after', 'group-focus'],
       position: ['before', 'after'],
       width: ['before', 'after'],
       height: ['before', 'after'],

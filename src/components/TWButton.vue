@@ -132,6 +132,7 @@ export default {
             this.customClasses['hover:bg-blue-700'] = false;
 
             this.loadingClasses['border-white'] = false;
+            this.customClasses['text-white'] = false;
             
             switch (this.variant) {
                 case 'primary':
