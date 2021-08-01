@@ -7,7 +7,7 @@
                     <h3 v-if="title" class="text-xl font-bold">{{ title }}</h3>
                 </slot>
                 <slot name="description">
-                    <p v-if="description" class="text-gray-500 mt-4">
+                    <p v-if="description" class="text-gray-700 mt-4">
                         {{ description }}
                     </p>
                 </slot>
