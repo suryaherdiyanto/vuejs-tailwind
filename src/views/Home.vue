@@ -116,10 +116,13 @@
             <tw-input type="text" name="phone" placeholder="Enter your phone number" id="phone"></tw-input>
           </tw-form-control>
           <tw-form-control name="city" title="Choose City">
-            <tw-select id="city" v-model="city" filterable :items="['Denpasar','Jakarta','Yogyakarta', 'Medan', 'Malang', 'Surabaya']"></tw-select>
+            <tw-select id="city" v-model="city" :items="['Denpasar','Jakarta','Yogyakarta', 'Medan', 'Malang', 'Surabaya']"></tw-select>
           </tw-form-control>
           <tw-form-control class="col-span-2" name="message" title="Your message">
             <tw-textarea name="message" id="message" placeholder="Enter your message here..."></tw-textarea>
+          </tw-form-control>
+          <tw-form-control name="Hobby" title="Choose your hobby">
+            <tw-checkbox-group v-model="hobbies" :items="['Cycling', 'Hiking', 'Coding']"></tw-checkbox-group>
           </tw-form-control>
         </div>
       </tw-form>
@@ -135,6 +138,7 @@ import TwInput from '../components/Form/TWInput.vue';
 import TwTextarea from '../components/Form/TWTextarea.vue';
 import TwFormControl from '../components/Form/TWFormControl.vue';
 import TwSelect from '../components/Form/TWSelect.vue';
+import TwCheckboxGroup from '../components/Form/TWCheckboxGroup.vue';
 
 export default {
   name: 'Home',
@@ -145,11 +149,13 @@ export default {
     TwForm,
     TwFormControl,
     TwTextarea,
-    TwSelect
+    TwSelect,
+    TwCheckboxGroup
   },
   data() {
     return {
-      city: 'Denpasar'
+      city: 'Denpasar',
+      hobbies: ['Cycling', 'Hiking']
     }
   }
 }
